@@ -38,7 +38,7 @@ function destroy(id){
     delete _todos[id];
 };
 
-AppDispatcher.registor(function(action){
+AppDispatcher.register(function(action){
     var text;
 
     switch(action.actionType){
@@ -52,7 +52,7 @@ AppDispatcher.registor(function(action){
         case TodoConstants.TODO_UPDATE_TEXT:
             text = action.text.trim();
             if( text !== '') {
-                update(text);
+                update(action.id, {text: text});
                 TodoStore.emitChange();
             }
             break;
