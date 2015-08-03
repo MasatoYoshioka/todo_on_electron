@@ -17,7 +17,7 @@ var TodoItem = React.createClass({
     render: function(){
         var input = {};
         if(this.state.isEditing){
-            input = <TodoTextInput onSave={this._onSave} />
+            input = <TodoTextInput onSave={this._onSave} value={this.props.text} />
         }
         return (
             <li>
